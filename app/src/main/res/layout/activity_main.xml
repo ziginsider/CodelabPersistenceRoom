@@ -37,6 +37,18 @@
                 android:onClick="onRefreshBtClicked"
                 android:text="@string/refresh" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/young_users"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/young_users_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp" />
+
         </LinearLayout>
 
     </ScrollView>
