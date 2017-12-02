@@ -10,7 +10,7 @@ import android.content.Context;
  */
 
 @Database(entities = {User.class, Book.class, Loan.class}, version = 1)
-public class AppDatabase extends RoomDatabase {
+public abstract class AppDatabase extends RoomDatabase {
 
     public static AppDatabase INSTANCE;
 
