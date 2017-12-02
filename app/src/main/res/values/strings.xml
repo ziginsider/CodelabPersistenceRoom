@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">CodelabPersistenceRoom</string>
-    <string name="books_borrowed_by_user">Books borrowed by Mike:</string>
+    <string name="books_borrowed_by_user">Books borrowed by Alexander:</string>
     <string name="refresh">Refresh</string>
     <string name="young_users">Young users:</string>
 </resources>

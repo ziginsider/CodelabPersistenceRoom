@@ -3,6 +3,8 @@ package io.github.ziginsider.codelabpersistenceroom;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.List;
@@ -17,9 +19,12 @@ public class MainActivity extends AppCompatActivity {
 
     private AppDatabase mDb;
 
+    //1
     private TextView mYoungUsersTextView;
 
+    //2
     private TextView mBooksTextView;
+    private Button mBooksButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +34,15 @@ public class MainActivity extends AppCompatActivity {
         mYoungUsersTextView = (TextView) findViewById(R.id.young_users_tv);
 
         //2
-        mBooksTextView = findViewById(R.id.books_tv);
+        mBooksTextView = (TextView) findViewById(R.id.books_tv);
+        mBooksButton = (Button) findViewById(R.id.button);
+
+        mBooksButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fetchData();
+            }
+        });
 
         mDb = AppDatabase.getInMemoryDatabase(getApplicationContext());
 
@@ -45,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void populateDb() {
-        DatabaseInitializer.populateSync(mDb);
+        DatabaseInitializer.populateAsync(mDb);
     }
 
     private void fetchData() {
@@ -58,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         mYoungUsersTextView.setText(sb);
 
         // This activity is executing a query on the main thread, making the UI perform badly.
-        List<Book> books = mDb.bookModel().findBooksBorrowedByNameSync("Mike");
+        List<Book> books = mDb.bookModel().findBooksBorrowedByNameSync("Alexander");
         showListInUI(books, mBooksTextView);
     }
 
