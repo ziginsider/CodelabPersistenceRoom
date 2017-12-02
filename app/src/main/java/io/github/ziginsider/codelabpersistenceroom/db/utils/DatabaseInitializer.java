@@ -69,6 +69,7 @@ public class DatabaseInitializer {
         User user1 = addUser(db, "1", "Dante", "Alighieri", 40);
         User user2 = addUser(db, "2", "Alexander", "Polubinski", 12);
         addUser(db, "3", "Osvald", "Spengler", 15);
+        addUser(db, "4", "Vasiliy", "Zharkov", 30);
 
         Book book1 = addBook(db, "1", "Dune");
         Book book2 = addBook(db, "2", "1984");
@@ -121,4 +122,6 @@ public class DatabaseInitializer {
         }
 
     }
+
+
 }
