@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //1
         mYoungUsersTextView = (TextView) findViewById(R.id.young_users_tv);
 
         //2
@@ -75,10 +76,19 @@ public class MainActivity extends AppCompatActivity {
 
     private void SubscribeUiBooks() {
 
+        //3 & 4
         mViewModel.books.observe(this, new Observer<List<Book>>() {
             @Override
             public void onChanged(@NonNull final List<Book> books) {
                 showBooksInUi(books, mBooksTextView);
+            }
+        });
+
+        //5
+        mViewModel.getLoansResult().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable final String result) {
+                mYoungUsersTextView.setText(result);
             }
         });
 
