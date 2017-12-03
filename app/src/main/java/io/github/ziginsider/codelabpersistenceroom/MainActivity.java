@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @SuppressWarnings("unused")
-    private void showBooksInUi(final @NonNull List<Book> books) {
+    private void showBooksInUi(final @NonNull List<Book> books, TextView bookTextView) {
         StringBuilder sb = new StringBuilder();
 
         for (Book book : books) {
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
             sb.append("\n");
 
         }
-        mBooksTextView.setText(sb.toString());
+        bookTextView.setText(sb.toString());
     }
 
     public void onRefreshBtClicked(View view) {
